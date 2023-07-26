@@ -1,0 +1,7 @@
+{
+    "require": {
+        "robmorgan/phinx": "^0.13.4",
+        "odan/phinx-migrations-generator": "^5.7.1",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

@@ -1,0 +1,33 @@
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/ocho/api
+    links:
+      - "db"
+    depends_on:
+      - db
+    networks:
+      - ochonet
+
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MARIADB_USER: dbuser
+      MARIADB_ROOT_PASSWORD: dbrootpassword
+      MARIADB_PASSWORD: dbpassword
+      MARIADB_DATABASE: ocho
+#    volumes:
+#      - ./data:/var/lib/mysql
+    networks:
+      - ochonet
+    ports:
+      - 13306:3306
+
+networks:
+  ochonet:
