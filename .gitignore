@@ -1,0 +1,5 @@
+src/vendor
+/.idea
+src/.env
+src/.phpunit.result.cache
+src/migration-strategy/vendor
