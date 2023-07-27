@@ -63,10 +63,63 @@ REVIEW;
 
     $router->get('/review/{id:' . BASE64_GUID_PATTERN . '}', function ($id) use ($router) {
         return response()->json([
-            new class { 
-                public $at = 2000;
-                public $action = "pause";
-            }
+            "video-provider" => "youtube",
+            "video-id" => "M7lc1UVf-VE",
+            "participants" => [
+                [
+                    "reviewer-id" => 1,
+                    "name" => "subject 1",
+                    "external-id" => 4,
+                    "external-name" => "Megiddo sel Esdraelon, esq."
+                ],
+                [
+                    "reviewer-id" => 2,
+                    "name" => "subject 2",
+                    "external-id" => 44,
+                    "external-name" => "Shalos"
+                ]
+
+            ],
+            "sets" => [
+                [
+                    "label" => "set-1",
+                    "description" => "",
+                    "assocation" => [
+                        "name" => "amtgard",
+                        "major" => "",
+                        "minor" => null 
+                    ],
+                    "occasion" => "private-practice",
+                    "date" => "2023-07-24",
+                    "chapters" => [
+                        [
+                            "participants" => [ 
+                                [ "id" => 1, "x" => 0.1, "y" => 0.2, "style-id" => 1, "style" => "Single Sword" ], 
+                                [ "id" => 2, "x" => 0.1, "y" => 0.2, "style-id" => 1, "style" => "Single Sword" ]
+                            ],
+                            "label" => "chapter-1",
+                            "description" => null,
+                            "playback-speed" => 1.0,
+                            "start-at" => 4000,
+                            "end-at" => 8000,
+                            "annotation" => null
+                        ],
+                        [
+                            "participants" => [ 
+                                [ "id" => 1, "x" => 0.1, "y" => 0.2, "style-id" => 1, "style" => "Single Sword" ], 
+                                [ "id" => 2, "x" => 0.1, "y" => 0.2, "style-id" => 1, "style" => "Single Sword" ]
+                            ],
+                            "label" => "chapter-2",
+                            "description" => null,
+                            "playback-speed" => 0.25,
+                            "start-at" => 10000,
+                            "end-at" => 11000,
+                            "annotation" => null
+                        ]
+
+                    ]
+                ]
+            ]
         ]);
     });
 
