@@ -14,6 +14,12 @@ By default, the API will be shared to ```localhost:8080```. If you already have 
 
 MariaDb will be shared to ```13306```, again, in the hopes that we avoid collisions. This may require modification. This is also configured in ```docker-compose.yml```.
 
+The steps for setting up are as follows:
+1. Install docker (if not done already)
+2. Run docker compose (below) - this will create a pair of containers (pretty much virtual machines running linux) that will have their own private virtual network.
+3. "Log in" to the API container and continue set up within the virtual machine
+4. Setup consists of running the composer tool to fetch dependencies for the project (below)
+
 ### On Mac, Linux:
 
 ```bash
@@ -28,6 +34,18 @@ Do some WSL2 stuff, then:
 
 ```bash
 > docker compose up --build -d
+```
+
+### After Docker Compose
+
+Log in to the API container:
+
+```
+> docker exec -it api-api-1 bash
+> cd cd api
+> composer install
+> cd migration-strategy
+> composer install
 ```
 
 ## Development
