@@ -64,7 +64,7 @@ REVIEW;
     $router->get('/review/{id:' . BASE64_GUID_PATTERN . '}', function ($id) use ($router) {
         return response()->json([
             "video-provider" => "youtube",
-            "video-id" => "M7lc1UVf-VE",
+            "video-uri" => "M7lc1UVf-VE",
             "participants" => [
                 [
                     "reviewer-id" => 1,
